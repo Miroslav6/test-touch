@@ -8,12 +8,17 @@
             background-color: #000;
         }
 
+        button.bg-yellow {
+            background-color: yellow !important;
+            transition: all 0.2s ease;
+        }
+
         .btn-wrapper {
             width: 300px;
             height: 300px;
         }
 
-        button {
+        .btn-1 {
             position: relative;
             width: 100%;
             height: 100%;
@@ -26,25 +31,25 @@
             overflow: hidden;
         }
 
-        button:focus {
+        /* .btn-1:focus {
             border: none;
             border-radius: 0;
             outline: 1px solid #fff;
         }
 
-        button.active {
+        .btn-1.active {
             background: #fff;
             color: inherit;
             outline: 1px solid #fff;
         }
 
-        button.active:focus {
+        .btn-1.active:focus {
             border: none;
             border-radius: 0;
             outline: 1px solid #fff;
         }
 
-        button:active {
+        .btn-1:active {
             opacity: 1;
             width: 100%;
             width: 100%;
@@ -52,7 +57,7 @@
             color: #000;
             margin: auto;
             transition: all 0.2s ease;
-        }
+        } */
     </style>
 </head>
 
@@ -61,10 +66,24 @@
 
     <p>My first paragraph.</p>
     <div class="btn-wrapper">
-        <button type="button">Click Me!</button>
-
+        <button id="btn-1" class="btn-1" type="button">Click Me!</button>
+        <hr>
+        <button class="btn-2" type="button">Click Me!</button>
     </div>
+    <script>
+        const element = document.getElementById("btn-1");
+        element.addEventListener("click", myFunction);
 
+        function myFunction(event) {
+
+            event.target.classList.add('bg-yellow');
+            // debugger
+            
+            setTimeout(() => {
+                event.target.classList.remove('bg-yellow');
+            }, "100")
+        }
+    </script>
 </body>
 
 </html>
